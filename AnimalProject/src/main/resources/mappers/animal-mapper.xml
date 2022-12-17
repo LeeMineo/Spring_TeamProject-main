@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Animal">
+    <insert id="insertAnimal">
+        insert into animal (animalName, age, gender, information, phonenumber, address)
+        values
+            (#{animalName} , #{age} , #{gender} , #{information}, #{phonenumber}, #{address})
+    </insert>
+    <update id="updateAnimal">
+        update animal set animalName=#{animalName}, age=#{age}, information=#{information}, gender=#{gender} where animalId=#{animalId}
+    </update>
+    <delete id="deleteAnimal">
+        delete from animal where animalId=#{animalId}
+    </delete>
+    <select id="getAnimal" resultType="animal">
+        select * from animal where animalId=#{animalId}
+    </select>
+    <select id="getAnimalList" resultType="animal">
+        select * from animal order by animalId desc
+    </select>
+</mapper>
